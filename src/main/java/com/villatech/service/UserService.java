@@ -50,24 +50,26 @@ public class UserService {
         User adminUser = new User();
         adminUser.setName("Admin");
         adminUser.setUserName("admin@test.com");
-        adminUser.setPassword(getEncodedPassword("admin"));
+        adminUser.setPassword(getEncodedPassword("Admin"));
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
         adminUser.setRole(adminRoles);
         userDao.save(adminUser);
 
         //automatic create user
-//        User user = new User();
-//        user.setName("User");
-//        user.setUserName("user@test.com");
-//        user.setPassword(getEncodedPassword("user"));
-//        Set<Role> userRoles = new HashSet<>();
-//        userRoles.add(userRole);
-//        user.setRole(userRoles);
-//        userDao.save(user);
+        User user = new User();
+        user.setName("User");
+        user.setUserName("user@test.com");
+        user.setPassword(getEncodedPassword("User"));
+        Set<Role> userRoles = new HashSet<>();
+        userRoles.add(userRole);
+        user.setRole(userRoles);
+        userDao.save(user);
     }
 
     public String getEncodedPassword(String password) {
+
         return passwordEncoder.encode(password);
     }
+
 }

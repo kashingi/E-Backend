@@ -71,7 +71,7 @@ public class JwtService implements UserDetailsService {
     }
 
     private void authenticate(String userName, String password) throws Exception {
-        System.out.println("Inside authenticate function");
+
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userName, password));
         }catch (DisabledException ex){
